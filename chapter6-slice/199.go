@@ -24,7 +24,6 @@ func main() {
 			log.Fatal(err)
 		}
 		numbers = append(numbers, number)
-
 	}
-	fmt.Printf("Average: %0.2f\n", average(numbers...))
+	fmt.Printf("Average: %0.2f\n", average(numbers))
 }
