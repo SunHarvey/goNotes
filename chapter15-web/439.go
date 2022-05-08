@@ -1,0 +1,41 @@
+package main
+
+import "fmt"
+
+func callFunction(passedFunction func()) {
+	passedFunction()
+}
+
+func callTwich(passedFunction func()) {
+	passedFunction()
+	passedFunction()
+}
+
+func callWithArguments(passedFunction func(string, bool)) {
+	passedFunction("This sentense is", false)
+}
+
+func printReturnValue(passedFunction func() string) {
+	fmt.Println(passedFunction())
+}
+
+func functionA() {
+	fmt.Println("function called")
+}
+
+func functionB() string {
+	fmt.Println("funciton called")
+	return "Returning from function"
+}
+
+func functionC(a string, b bool) {
+	fmt.Println("function called")
+	fmt.Println(a, b)
+}
+
+func main() {
+	callFunction(functionA)
+	callTwich(functionA)
+	callWithArguments(functionC)
+	printReturnValue(functionB)
+}
