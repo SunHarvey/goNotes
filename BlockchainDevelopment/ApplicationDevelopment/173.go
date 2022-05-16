@@ -24,7 +24,6 @@ func Base58Encode(input int64) []byte {
 		x.DivMod(x, base, mod)
 		result = append(result, b58Alphabet[mod.Int64()])
 	}
-
 	ReverseBytes(result)
 	return result
 }
