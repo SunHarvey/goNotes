@@ -3,10 +3,10 @@ package main
 import (
 	"bytes"
 	"crypto/sha256"
+	"encoding/binary"
 	"fmt"
 	"math"
 	"math/big"
-	"encoding/binary"
 )
 
 var (

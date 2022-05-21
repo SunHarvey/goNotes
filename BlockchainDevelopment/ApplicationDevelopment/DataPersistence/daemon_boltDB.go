@@ -1,12 +1,12 @@
 package main
 
 import (
-	"github.com/boltdb/bolt"
 	"fmt"
+	"github.com/boltdb/bolt"
 )
 
 func main() {
-	db,_ := bolt.Open("my.db", 0600, nil)
+	db, _ := bolt.Open("my.db", 0600, nil)
 	defer db.Close()
 	db.Update(func(tx *bolt.Tx) error {
 		bucket,_ := tx.CreateBucket([]byte("bucket1"))
@@ -16,7 +16,7 @@ func main() {
 
 	db.View(func(tx *bolt.Tx) error {
 		bucket := tx.Bucket([]byte("bucket1"))
-		val:= bucket.Get([]byte("name"))
+		val := bucket.Get([]byte("name"))
 		fmt.Println(string(val))
 		return nil
 	})
