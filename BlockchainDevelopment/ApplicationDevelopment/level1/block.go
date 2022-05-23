@@ -12,7 +12,8 @@ import (
 
 type Block struct {
 	Timestamp     int64
-	Data          []byte
+	Transactions	[]*Transaction
+	//Data          []byte
 	PrevBlockHash []byte
 	Hash          []byte
 	Nonce         int64
@@ -75,4 +76,15 @@ func DeserializeBlock(d []byte) *Block {
 	err := decoder.Decode(&block)
 	fmt.Println(err)
 	return &block
+}
+
+func (b *Block) HashTransactions() []byte {
+	var txHashes [][]byte
+	var txHash [32]byte
+
+	for _, tx := range b.Transactions {
+		txHashes = append(tx.Hashes, tx.ID)
+	}
+	txHash = sha256.Sum256(bytes.Join(txHashes, []byte{}))
+	return txHash[:]
 }
