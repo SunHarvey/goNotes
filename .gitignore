@@ -17,3 +17,8 @@
 
 go/src/github.com/boltdb/*
 go/pkg/*
+go/src/github.com/btcsuite/*
+go/src/github.com/decred/*
+go/src/github.com/ethereum/*
+go/src/github.com/tyler-smith/*
+go/src/github.com/btcsuite/btcd
