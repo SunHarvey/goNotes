@@ -2,9 +2,9 @@ package main
 
 import (
 	"crypto/ecdsa"
-	"errors"
+//	"errors"
 	"fmt"
-	"log"
+//	"log"
 
 	"github.com/btcsuite/btcd/chaincfg"
 	//"github.com/btcsuite/btcutil/hdkeychain"
@@ -15,7 +15,7 @@ import (
 	"github.com/tyler-smith/go-bip39"
 )
 
-func DerivePrivateKey(path accounts.DerivatePath, masterKey *hdkeychain.ExtendedKey) (*ecdsa.PrivateKey, error) {
+func DerivePrivateKey(path accounts.DerivationPath, masterKey *hdkeychain.ExtendedKey) (*ecdsa.PrivateKey, error) {
 	var err error
 	key := masterKey
 	for _, n := range path {
@@ -65,6 +65,6 @@ func DriveAddressFromMnemnoic() {
 }
 
 
-func main() {}
+func main() {
 	DeriveAddressFromMnemonic()
 }
