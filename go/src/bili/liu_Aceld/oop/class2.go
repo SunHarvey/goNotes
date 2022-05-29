@@ -29,8 +29,8 @@ func (s *SuperMan) Fly() {
 }
 
 func (s *SuperMan) Print() {
-	fmt.Println("name: ",s.name)
-	fmt.Println("sex: ",s.sex)
+	fmt.Println("name: ", s.name)
+	fmt.Println("sex: ", s.sex)
 	fmt.Println("level: ", s.level)
 }
 
@@ -51,6 +51,6 @@ func main() {
 	s.Eat()
 	s.Walk()
 	s.Fly()
-	
+
 	s.Print()
 }
