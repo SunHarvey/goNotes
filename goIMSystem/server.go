@@ -49,8 +49,8 @@ func (s *Server) BroadCast(user *User, msg string) {
 func (s *Server) Handler(conn net.Conn) {
 	//fmt.Println("connect build success")
 	user := NewUser(conn, s)
-    
-    user.Online()
+
+	user.Online()
 
 	// accept client message
 	go func() {
@@ -58,7 +58,7 @@ func (s *Server) Handler(conn net.Conn) {
 		for {
 			n, err := conn.Read(buf)
 			if n == 0 {
-                user.Offline()
+				user.Offline()
 				return
 			}
 
@@ -69,11 +69,10 @@ func (s *Server) Handler(conn net.Conn) {
 
 			// get user message, delete '\n'
 			msg := string(buf[:n-1])
-            
 
 			//handler message
-            user.DoMessage(msg)
-    
+			user.DoMessage(msg)
+
 		}
 	}()
 
