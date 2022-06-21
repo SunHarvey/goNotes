@@ -1,4 +1,4 @@
-package main
+package protocol
 
 import (
 	"bufio"
@@ -54,7 +54,7 @@ func (r *Reader) Read() (interface{}, error) {
 	return nil, UnknownCommand
 }
 func (r *Reader) ReadAll() ([]interface{}, error) {
-	commands := []interface{}()
+	commands := []interface{}{}
 	for {
 		command, err := r.Read()
 
@@ -65,8 +65,8 @@ func (r *Reader) ReadAll() ([]interface{}, error) {
 		if err == io.EOF {
 			break
 		} else if err != nil {
-			return command, err
+			return commands, err
 		}
 	}
-	return command, nil
+	return commands, nil
 }

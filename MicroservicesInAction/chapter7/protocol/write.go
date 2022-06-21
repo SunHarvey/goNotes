@@ -25,7 +25,7 @@ func (w *Writer) Write(command interface{}) error {
 
 	switch v := command.(type) {
 	case SendCmd:
-		err = w.writeString(fmt.Sprintf("SEND %v\n", Message))
+		err = w.writeString(fmt.Sprintf("SEND %v\n", v.Message))
 	case MessCmd:
 		err = w.writeString(fmt.Sprintf("MESSAGE %V %v\n", v.Name, v.Message))
 	case NameCmd:
