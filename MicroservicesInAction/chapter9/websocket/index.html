@@ -1,0 +1,25 @@
+<body>
+<h1> chat/history:</h1>
+
+<div id="mess"></div>
+
+<script type="text/javascript">
+	var mess = document.getElementById("mess");
+
+	//2
+	var exampleSocket = new WebSocket("ws://127.0.0.1:7778/ws")
+	//var exampleSocket = new WebSocket("ws://"+localhost.host + "/ws")
+
+	//3
+	var update = function() {
+		exampleSocket.onmessage = function (event) {
+			var chat = event.data;
+			console.log(chat.toString());
+			var br = document.createElement("br");
+			mess.textContent = mess.textContent + chat.toString() + "\n";
+			mess.appendChild(br);
+		}
+	};
+	window.setTimeout(update);
+</script>
+</body>
